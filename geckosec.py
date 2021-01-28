@@ -1,4 +1,10 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
+
+# A pentest framework to facilitate hacker's life (only for ethical hacking !!)
+# Leader of project : Elieroc
+# Developpers : Elieroc, Stryff3r, Dokanii, Dragorzor
+# Start of project : 27/01/2021
+# Actual version : ~
 
 from Banner import banner
 from Pscanner import port_scan

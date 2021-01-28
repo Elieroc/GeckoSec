@@ -1,4 +1,9 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
+
+# A python Port-scanner
+# Developed by Elieroc
+# Start of project : 13/01/2021
+# Actual version : 1.0
 
 import socket
 import threading

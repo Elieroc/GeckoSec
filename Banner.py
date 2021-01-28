@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+
+# A python Banner printer
+# Developed by Elieroc
+# Start of project : 27/01/2021
+# Actual version : 1.0
+
 import time
 
 # Bannière principale
