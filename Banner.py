@@ -13,5 +13,6 @@ def banner():
     banner_lines = banner.readlines()
     banner.close()
     for banner_line in banner_lines:
-        print("\033[1;35m" + banner_line)
+        string = "\033[1;91m" + banner_line
+        print(string.strip())
         time.sleep(0.05)

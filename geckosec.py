@@ -8,6 +8,7 @@
 
 from Banner import banner
 from Pscanner import port_scan
+from Network_scanner import net_scan
 import time
 import os
 
@@ -15,7 +16,7 @@ import os
 def main():
     os.system('clear')
     banner()
-    print("\033[1;36m" + " Welcome to GeckoSec Framework\n")
+    print("\n" + "\033[1;36m" + " Welcome to GeckoSec Framework\n")
     choice = inp()
     if choice == "1":
         scan()
@@ -42,17 +43,45 @@ def help():
     time.sleep(1)
     main()
 
+# Partie scan
 def scan():
-    print("Bienvenue dans la partie Scan !\n")
+    print("\nBienvenue dans la partie scan du framework !\n")
+    print("1) Scan du réseau")
+    print("2) Scanner de port(s)\n")
+    type = str(inp())
+    if type == "1":
+        r_scan()
+    if type == "2":
+        p_scan()
+
+# Sous-partie : scan réseau
+def r_scan():
+    os.system("clear")
+    print("Bienvenue dans la partie scan de réseau !\n\n")
+    print("Saisissez l'ip du réseau :\n")
+    net_id = str(inp())
+    print("Saisissez la classe du réseau à target :\n")
+    print("A : 255.0.0.0")
+    print("B : 255.255.0.0")
+    print("C : 255.255.255.0\n")
+    net_class = str(inp())
+    net_scan(net_id, net_class)
+    print("\n")
+    inp()
+
+# Sous partie : scanner de port(s)
+def p_scan():
+    os.system("clear")
+    print("Bienvenue dans la partie scanner de port(s) !\n")
     print("1) Scan Ninja")
     print("2) Scan des 1024 premiers ports")
     print("3) Scan de tous les ports (pas discret)")
     print("4) Scan d'un seul port\n")
     type = str(inp())
-    print("Saisissez l'ip à target :")
+    print("Saisissez l'ip à target :\n")
     target = str(inp())
     if type == "4":
-        print("Saisissez le port à scanner :")
+        print("Saisissez le port à scanner :\n")
         port = int(inp())
         port_scan(type, target, port)
     port_scan(type, target)
