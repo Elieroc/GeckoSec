@@ -20,6 +20,10 @@ def main():
     choice = inp()
     if choice == "1":
         scan()
+    if choice == "2":
+        cs()
+    if choice == "3":
+        se()
     else :
         print("\033[91mBad option !")
         time.sleep(1)
@@ -45,6 +49,41 @@ def help():
 
 # Partie scan
 def scan():
+
+    # Sous-partie 1 : scan réseau
+    def r_scan():
+        os.system("clear")
+        print("Bienvenue dans la partie scan de réseau !\n\n")
+        print("Saisissez l'ip du réseau :\n")
+        net_id = str(inp())
+        print("Saisissez la classe du réseau à target :\n")
+        print("A : 255.0.0.0")
+        print("B : 255.255.0.0")
+        print("C : 255.255.255.0\n")
+        net_class = str(inp())
+        net_scan(net_id, net_class)
+        print("\n")
+        inp()
+
+    # Sous partie 2 : scanner de port(s)
+    def p_scan():
+        os.system("clear")
+        print("Bienvenue dans la partie scanner de port(s) !\n")
+        print("1) Scan Ninja")
+        print("2) Scan des 1024 premiers ports")
+        print("3) Scan de tous les ports (pas discret)")
+        print("4) Scan d'un seul port\n")
+        type = str(inp())
+        print("Saisissez l'ip à target :\n")
+        target = str(inp())
+        if type == "4":
+            print("Saisissez le port à scanner :\n")
+            port = int(inp())
+            port_scan(type, target, port)
+        port_scan(type, target)
+        print("\n")
+        inp()
+
     print("\nBienvenue dans la partie scan du framework !\n")
     print("1) Scan du réseau")
     print("2) Scanner de port(s)\n")
@@ -54,38 +93,20 @@ def scan():
     if type == "2":
         p_scan()
 
-# Sous-partie : scan réseau
-def r_scan():
-    os.system("clear")
-    print("Bienvenue dans la partie scan de réseau !\n\n")
-    print("Saisissez l'ip du réseau :\n")
-    net_id = str(inp())
-    print("Saisissez la classe du réseau à target :\n")
-    print("A : 255.0.0.0")
-    print("B : 255.255.0.0")
-    print("C : 255.255.255.0\n")
-    net_class = str(inp())
-    net_scan(net_id, net_class)
-    print("\n")
-    inp()
+# Partie Social Engineering
+def se():
 
-# Sous partie : scanner de port(s)
-def p_scan():
-    os.system("clear")
-    print("Bienvenue dans la partie scanner de port(s) !\n")
-    print("1) Scan Ninja")
-    print("2) Scan des 1024 premiers ports")
-    print("3) Scan de tous les ports (pas discret)")
-    print("4) Scan d'un seul port\n")
+    def phishing():
+        os.system('clear')
+        os.system('cd SocialPhis/ && sh socialphish.sh')
+
+    print("\nBienvenue dans la partie Social Engineering du framework !\n")
+    print("1) Phishing\n")
     type = str(inp())
-    print("Saisissez l'ip à target :\n")
-    target = str(inp())
-    if type == "4":
-        print("Saisissez le port à scanner :\n")
-        port = int(inp())
-        port_scan(type, target, port)
-    port_scan(type, target)
-    print("\n")
-    inp()
+    if type == "1":
+        phishing()
+        print("\n")
+        inp()
+
 
 main()
