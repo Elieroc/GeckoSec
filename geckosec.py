@@ -4,7 +4,7 @@
 # Leader of project : Elieroc
 # Developpers : Elieroc, Stryff3r, Dokanii, Dragorzor
 # Start of project : 27/01/2021
-# Actual version : ~
+# Actual version : 1.2
 
 # Local Modules
 from Banner.banner import *
