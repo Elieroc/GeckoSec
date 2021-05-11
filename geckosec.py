@@ -6,9 +6,15 @@
 # Start of project : 27/01/2021
 # Actual version : ~
 
-from Banner import banner
-from Pscanner import port_scan
-from Network_scanner import net_scan
+# Local Modules
+from Banner.banner import *
+from Scanning.pscanner import port_scan
+from Scanning.network_scanner import net_scan
+from Exploitation.Listeners.simple_listener import simple_listener
+from Exploitation.Listeners.advanced_listener import main
+from Exploitation.Payloads.advanced_reverse_shell import main
+
+# Other Modules
 import time
 import os
 
@@ -19,11 +25,13 @@ def main():
     print("\n" + "\033[1;36m" + " Welcome to GeckoSec Framework\n")
     choice = inp()
     if choice == "1":
-        scan()
+        scan_menu()
     if choice == "2":
-        cs()
+        exploitation_menu()
     if choice == "3":
-        se()
+        cs_menu()
+    if choice == "4":
+        se_menu()
     else :
         print("\033[91mBad option !")
         time.sleep(1)
@@ -48,7 +56,7 @@ def help():
     main()
 
 # Partie scan
-def scan():
+def scan_menu():
 
     # Sous-partie 1 : scan réseau
     def r_scan():
@@ -93,8 +101,35 @@ def scan():
     if type == "2":
         p_scan()
 
+# Partie Exploitation
+def exploitation_menu():
+
+    # Sous partie 1 : listeners
+    def listener():
+        os.system("clear")
+        print("Bienvenue dans la partie listeners !\n")
+        print("1) Simple Netcat Listener")
+        print("2) Advanced Python Listener\n")
+        type = str(inp())
+        if type == "1":
+            print("Saisissez le port d'écoute :")
+            port = int(inp())
+            simple_listener(port)
+
+
+    #def payload_generator():
+    
+    print("\nBienvenue dans la partie Exploitation du framework !\n")
+    print("1) Listeners")
+    print("2) Payloads generators\n")
+    type = str(inp())
+    if type == "1":
+        listener()
+        print("\n")
+        inp()
+
 # Partie Social Engineering
-def se():
+def se_menu():
 
     def phishing():
         os.system('clear')
